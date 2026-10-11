@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#120c10">
+    <title>MIDAS — The Golden Touch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="header" id="header">
+    <a href="#home" class="logo">
+        M<span>I</span>DAS
+        <small>THE GOLDEN TOUCH</small>
+    </a>
+
+    <nav id="nav">
+        <a href="#story">Философия</a>
+        <a href="#menu">Меню</a>
+        <a href="#galaxy">Галактика десертов</a>
+        <a href="#secret">Секреты</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+        <button class="cart-trigger" id="cartTrigger">
+            ЗАКАЗ <b id="cartCount">0</b>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+</header>
+
+<main>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero" id="home">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-inner">
+            <div class="eyebrow reveal">✦ THE ART OF GOLDEN DINING ✦</div>
+
+            <h1 class="reveal">
+                ПРИКОСНИСЬ<br>
+                К <em>ЗОЛОТУ.</em>
+            </h1>
+
+            <p class="reveal">
+                Легенда о Мидасе оживает в каждом вкусе.
+                Мы превращаем обычный ужин в незабываемый момент.
+            </p>
+
+            <div class="hero-actions reveal">
+                <a href="#menu" class="btn gold-btn">ОТКРЫТЬ МЕНЮ ↗</a>
+                <a href="#galaxy" class="btn outline-btn">ГАЛАКТИКА ДЕСЕРТОВ ↓</a>
+            </div>
+        </div>
+
+        <div class="hero-foot">
+            <span>EST. 2026 · THE GOLDEN TOUCH</span>
+            <a href="#story">SCROLL TO DISCOVER ↓</a>
+        </div>
+    </section>
+
+    <div class="ticker">
+        <div>
+            ✦ MIDAS ✦ THE GOLDEN TOUCH ✦ EVERY FLAVOR IS A TREASURE ✦
+            MIDAS ✦ THE GOLDEN TOUCH ✦ EVERY FLAVOR IS A TREASURE ✦
+        </div>
+    </div>
+
+    <!-- ИСТОРИЯ -->
+    <section class="story section" id="story">
+        <div class="story-photo reveal">
+            <img src="images/restourant foto.jpg" alt="Ресторан MIDAS">
+            <span>01 / THE LEGEND</span>
+        </div>
+
+        <div class="story-text reveal">
+            <div class="eyebrow">ФИЛОСОФИЯ РЕСТОРАНА</div>
+            <h2>ЛЕГЕНДА<br>О <em>МИДАСЕ.</em></h2>
+            <div class="line"></div>
+
+            <p>
+                Согласно древнегреческому мифу, царь Мидас
+                мог превращать в золото всё, к чему прикасался.
+                Мы переосмыслили эту легенду.
+            </p>
+
+            <p>
+                Наше золото — это вкус, атмосфера и моменты,
+                которые хочется сохранить навсегда.
+            </p>
+
+            <strong class="signature">Every taste turns to gold.</strong>
+        </div>
+    </section>
+
+
+
+<!-- THE GOLDEN CHEF -->
+<section class="chef-section" id="chef">
+    <img
+        src="images/chef-midas.png"
+        alt="Шеф-повар ресторана MIDAS"
+        class="chef-banner"
+    >
+</section>
+
+
+
+    <section class="statement">
+        <div class="eyebrow reveal">✦ THE MIDAS PROMISE ✦</div>
+        <h2 class="reveal">
+            НЕ ВСЁ ЗОЛОТО,<br>
+            ЧТО БЛЕСТИТ.<br>
+            <em>НО КАЖДЫЙ ВКУС — СОКРОВИЩЕ.</em>
+        </h2>
+    </section>
+
+    <!-- МЕНЮ -->
+    <section class="menu-section section" id="menu">
+        <div class="section-heading reveal">
+            <div class="eyebrow">02 / THE GOLDEN MENU</div>
+            <h2>КОЛЛЕКЦИЯ <em>ВКУСОВ.</em></h2>
+            <p>Открой блюдо, узнай состав и добавь его в заказ.</p>
+        </div>
+
+        <div class="filters" id="filters">
+            <button class="active" data-filter="all">ВСЁ МЕНЮ</button>
+            <button data-filter="main">ОСНОВНЫЕ</button>
+            <button data-filter="sushi">СУШИ</button>
+            <button data-filter="dessert">ДЕСЕРТЫ</button>
+            <button data-filter="drink">НАПИТКИ</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <!-- ГАЛАКТИКА ДЕСЕРТОВ -->
+    <section class="galaxy-section" id="galaxy">
+        <div class="section-heading reveal">
+            <div class="eyebrow">03 / MIDAS GOLDEN UNIVERSE</div>
+            <h2>ГАЛАКТИКА <em>ДЕСЕРТОВ.</em></h2>
+            <p>Восемь сладких планет. У каждой — свой вкус и своя орбита.</p>
+        </div>
+
+        <div class="universe" id="universe">
+            <div class="stars"></div>
+
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+            <div class="orbit orbit-4"></div>
+
+            <div class="sun">
+                <span>✦</span>
+                <strong>MIDAS</strong>
+                <small>GOLDEN UNIVERSE</small>
+            </div>
+
+            <div id="planets"></div>
+        </div>
+
+        <p class="galaxy-hint">
+            ✦ НАЖМИ НА ПЛАНЕТУ, ЧТОБЫ ОТКРЫТЬ ДЕСЕРТ ✦
+        </p>
+    </section>
+
+    <!-- СЕКРЕТНЫЕ БЛЮДА -->
+    <section class="secret-section section" id="secret">
+        <div class="secret-intro reveal">
+            <div class="eyebrow">04 / THE HIDDEN COLLECTION</div>
+            <h2>ЗОЛОТЫЕ<br><em>СЕКРЕТЫ.</em></h2>
+            <p>
+                Не всё открывается с первого взгляда.
+                Нажми на золотую крышку, чтобы раскрыть блюдо шефа.
+            </p>
+        </div>
+
+        <div class="secret-grid" id="secretGrid"></div>
+    </section>
+
+    <!-- АТМОСФЕРНЫЙ БЛОК -->
+    <section class="final-banner">
+        <div class="final-overlay"></div>
+
+        <div class="final-content reveal">
+            <div class="eyebrow">THE GOLDEN TOUCH</div>
+            <h2>
+                ПУСТЬ ЭТОТ ВЕЧЕР<br>
+                <em>СТАНЕТ ЗОЛОТЫМ.</em>
+            </h2>
+            <a href="#menu" class="btn gold-btn">ВЫБРАТЬ БЛЮДА ↗</a>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="contact section" id="contact">
+        <div>
+            <div class="eyebrow">05 / YOUR GOLDEN MOMENT</div>
+            <h2>ТВОЙ ВЕЧЕР.<br><em>ТВОЙ MIDAS.</em></h2>
+            <p>
+                Выбери любимые блюда и отправь подготовленный
+                заказ через WhatsApp.
+            </p>
+            <button class="btn gold-btn" id="bottomCart">
+                ПЕРЕЙТИ К ЗАКАЗУ ↗
+            </button>
+        </div>
+
+        <div class="contact-card">
+            <span>РЕСТОРАН</span>
+            <strong>MIDAS — THE GOLDEN TOUCH</strong>
+
+            <span>КОНЦЕПЦИЯ</span>
+            <strong>PREMIUM DINING EXPERIENCE</strong>
+
+            <span>ЗАКАЗЫ</span>
+            <strong>WHATSAPP · ДЕМОНСТРАЦИОННЫЙ САЙТ</strong>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">MIDAS<span>✦</span></div>
+    <div class="footer-line">
+        <span>© 2026 MIDAS — THE GOLDEN TOUCH</span>
+        <span>EVERY FLAVOR IS A TREASURE</span>
+        <a href="#home">НАВЕРХ ↑</a>
+    </div>
+</footer>
+
+<!-- ОКНО БЛЮДА -->
+<div class="modal" id="dishModal" aria-hidden="true">
+    <div class="shade" data-close-modal></div>
+
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="dishTitle">
+        <button class="close" id="closeModal" aria-label="Закрыть">✕</button>
+        <img id="dishImage" src="" alt="">
+
+        <div class="modal-details">
+            <div class="eyebrow">✦ MIDAS CHEF'S SELECTION</div>
+            <h2 id="dishTitle"></h2>
+            <p id="dishDescription"></p>
+
+            <div class="ingredients">
+                <span>СОСТАВ</span>
+                <p id="dishIngredients"></p>
+            </div>
+
+            <div class="modal-bottom">
+                <strong id="dishPrice"></strong>
+                <button class="btn gold-btn" id="addCart">В ЗАКАЗ +</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- КОРЗИНА -->
+<div class="drawer" id="drawer" aria-hidden="true">
+    <div class="shade" id="drawerShade"></div>
+
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="drawer-head">
+            <div class="eyebrow">YOUR GOLDEN SELECTION</div>
+            <h2 id="drawerTitle">МОЙ <em>ЗАКАЗ.</em></h2>
+            <button class="close" id="closeDrawer" aria-label="Закрыть">✕</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="drawer-bottom">
+            <div class="total">
+                <span>ИТОГО</span>
+                <strong id="total">0 TJS</strong>
+            </div>
+
+            <button class="btn gold-btn full" id="sendOrder">
+                ОТПРАВИТЬ В WHATSAPP ↗
+            </button>
+
+            <small>
+                Заказ отправляется только после подтверждения
+                отправки сообщения в WhatsApp.
+            </small>
+        </div>
+    </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

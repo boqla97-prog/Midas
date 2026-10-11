@@ -1,0 +1,1368 @@
+
+:root {
+    --bg: #100b0e;
+    --panel: #211419;
+    --gold: #d5aa6c;
+    --light: #f5d6a2;
+    --white: #f6eee5;
+    --muted: #b7a8a4;
+    --line: #d5aa6c35;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: Manrope, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+body.lock { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; }
+em { color: var(--gold); }
+
+::selection {
+    background: var(--gold);
+    color: #180e10;
+}
+
+/* ШАПКА */
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--gold);
+    z-index: 1100;
+}
+
+.header {
+    height: 88px;
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    border-bottom: 1px solid #ffffff24;
+    transition: .3s;
+}
+
+.header.scrolled {
+    height: 75px;
+    background: #100b0ef0;
+    backdrop-filter: blur(16px);
+    border-color: var(--line);
+}
+
+.logo {
+    font: 700 37px/.75 'Cormorant Garamond', serif;
+    letter-spacing: 5px;
+}
+
+.logo span { color: var(--gold); }
+
+.logo small {
+    display: block;
+    font: 700 8px Manrope, sans-serif;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 12px;
+}
+
+.header nav {
+    display: flex;
+    gap: 26px;
+}
+
+.header nav a {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.header nav a:hover { color: var(--gold); }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-trigger {
+    background: #d5aa6c14;
+    border: 1px solid var(--line);
+    color: var(--white);
+    padding: 11px 14px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.cart-trigger b {
+    background: var(--gold);
+    color: #140b0e;
+    padding: 4px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 25px;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+    min-height: 700px;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background: url('images/fon.jpg') center/cover;
+    animation: heroZoom 17s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    to { transform: scale(1.12); }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, #0b0709f5, #160b10c7 48%, #160b1040),
+        linear-gradient(0deg, var(--bg), transparent 25%);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    margin-left: 8%;
+    max-width: 960px;
+    padding-top: 60px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.8;
+}
+
+.hero h1,
+.section h2,
+.section-heading h2,
+.final-content h2,
+.statement h2 {
+    font: 500 clamp(54px, 7.4vw, 115px)/.99 'Cormorant Garamond', serif;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 { margin: 24px 0; }
+
+.hero-inner > p {
+    max-width: 510px;
+    font-size: 14px;
+    line-height: 2;
+    color: #d7c8c0;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 38px;
+}
+
+.btn {
+    border: 1px solid transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 55px;
+    padding: 0 25px;
+    font-size: 10px;
+    letter-spacing: 1.3px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.gold-btn {
+    background: var(--gold);
+    color: #1a1010;
+}
+
+.gold-btn:hover {
+    background: var(--light);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px #d5aa6c2b;
+}
+
+.outline-btn {
+    border-color: #ffffff60;
+    background: #ffffff0c;
+    color: white;
+}
+
+.outline-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.hero-foot {
+    position: absolute;
+    bottom: 32px;
+    left: 6%;
+    right: 6%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #d4bdb0;
+}
+
+.hero-foot a { color: var(--gold); }
+
+.ticker {
+    background: var(--gold);
+    color: #1c1110;
+    overflow: hidden;
+    padding: 16px 0;
+}
+
+.ticker div {
+    width: max-content;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    animation: marquee 27s linear infinite;
+}
+
+@keyframes marquee {
+    to { transform: translateX(-35%); }
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+.section { padding: 130px 8%; }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ИСТОРИЯ */
+
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9%;
+    align-items: center;
+    background: radial-gradient(ellipse at 80% 45%, #4a1b2933, transparent 55%);
+}
+
+.story-photo { position: relative; }
+
+.story-photo img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+}
+
+.story-photo > span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--gold);
+    color: #1b1110;
+    padding: 15px 22px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.story h2 { margin: 23px 0; }
+
+.story p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2.2;
+    margin: 17px 0;
+}
+
+.line {
+    width: 70px;
+    height: 1px;
+    background: var(--gold);
+    margin: 27px 0;
+}
+
+.signature {
+    font: italic 31px 'Cormorant Garamond', serif;
+    color: var(--gold);
+    display: block;
+    margin-top: 35px;
+}
+
+.statement {
+    text-align: center;
+    padding: 120px 6%;
+    background:
+        linear-gradient(#2d121bde, #2d121bde),
+        url('images/the noir.jpg') center/cover;
+}
+
+.statement h2 {
+    font-size: clamp(38px, 5vw, 77px);
+    line-height: 1.1;
+    margin-top: 26px;
+}
+
+/* МЕНЮ */
+
+.menu-section { background: #150e12; }
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-heading h2 { margin: 16px 0; }
+
+.section-heading p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+}
+
+.filters button {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    padding: 13px 19px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.filters button.active,
+.filters button:hover {
+    background: var(--gold);
+    color: #1b1110;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.food-card {
+    border: 1px solid var(--line);
+    background: #21171b;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .35s;
+}
+
+.food-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 25px 50px #0006;
+}
+
+.food-image {
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.food-card:hover img { transform: scale(1.08); }
+
+.food-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #160d11e8;
+    color: var(--gold);
+    padding: 9px 11px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.food-body { padding: 25px; }
+
+.food-body h3 {
+    font: 600 31px 'Cormorant Garamond', serif;
+}
+
+.food-body p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    margin-top: 10px;
+    min-height: 47px;
+}
+
+.food-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    margin-top: 22px;
+}
+
+.food-bottom strong {
+    font: 700 28px 'Cormorant Garamond', serif;
+    color: var(--gold);
+}
+
+.food-bottom span {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+}
+
+/* ГАЛАКТИКА ДЕСЕРТОВ */
+
+.galaxy-section {
+    position: relative;
+    padding: 120px 2% 80px;
+    background: radial-gradient(
+        ellipse at 50% 52%,
+        #572238 0%,
+        #1a101d 48%,
+        #09090e 90%
+    );
+    overflow: hidden;
+}
+
+.galaxy-section .section-heading {
+    position: relative;
+    z-index: 3;
+}
+
+.universe {
+    --scale: 1;
+    position: relative;
+    width: min(1000px, 100%);
+    height: 890px;
+    margin: auto;
+    isolation: isolate;
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .7;
+    background-image:
+        radial-gradient(2px 2px at 12% 19%, #fff, transparent),
+        radial-gradient(2px 2px at 77% 13%, #ffdeaa, transparent),
+        radial-gradient(1px 1px at 25% 70%, #fff, transparent),
+        radial-gradient(2px 2px at 89% 76%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 10%, #fff, transparent),
+        radial-gradient(2px 2px at 65% 89%, #ffe2ad, transparent);
+    background-size: 320px 320px;
+    animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    to { opacity: .25; }
+}
+
+.orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid #d5aa6c40;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.orbit-1 {
+    width: calc(260px * var(--scale));
+    height: calc(260px * var(--scale));
+}
+
+.orbit-2 {
+    width: calc(430px * var(--scale));
+    height: calc(430px * var(--scale));
+}
+
+.orbit-3 {
+    width: calc(615px * var(--scale));
+    height: calc(615px * var(--scale));
+}
+
+.orbit-4 {
+    width: calc(800px * var(--scale));
+    height: calc(800px * var(--scale));
+}
+
+/* ЗОЛОТОЕ СОЛНЦЕ */
+
+.sun {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: calc(155px * var(--scale));
+    height: calc(155px * var(--scale));
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ffe4ae,
+        #cb904b 48%,
+        #642b20
+    );
+    box-shadow:
+        0 0 60px #e6a75688,
+        0 0 150px #d9954e35,
+        inset -15px -15px 30px #3e1a1a99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: sunGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+    to {
+        box-shadow:
+            0 0 85px #e6a756aa,
+            0 0 180px #d9954e55,
+            inset -15px -15px 30px #3e1a1a99;
+    }
+}
+
+.sun span {
+    font-size: 22px;
+    color: #4d261c;
+}
+
+.sun strong {
+    font: 700 clamp(16px, 3vw, 35px) 'Cormorant Garamond', serif;
+    letter-spacing: 3px;
+    color: #45231b;
+}
+
+.sun small {
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: #4b271f;
+    font-weight: 800;
+}
+
+/* ПЛАНЕТЫ */
+
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--size) * var(--scale));
+    height: calc(var(--size) * var(--scale));
+    margin-left: calc(var(--size) * var(--scale) / -2);
+    margin-top: calc(var(--size) * var(--scale) / -2);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    padding: 0;
+    background: #2d171b;
+    pointer-events: auto;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 0 25px #d5aa6c55;
+
+    /* Вращение никогда не останавливается при наведении */
+    animation: orbitMove var(--speed) linear infinite;
+}
+
+.planet-inner {
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.planet img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.88);
+    transition: filter .25s;
+}
+
+.planet:hover img {
+    filter: brightness(1.16) saturate(1.12);
+}
+
+.planet:hover,
+.planet:focus-visible {
+    border-color: #ffdf9f;
+    box-shadow: 0 0 38px #ffd58cbb;
+    outline: none;
+}
+
+.planet-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    text-shadow: 0 1px 4px #000;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.2;
+    padding: 12px 3px 7px;
+    background: linear-gradient(transparent, #170b11e8);
+}
+
+@keyframes orbitMove {
+    from {
+        transform:
+            rotate(var(--start))
+            translateX(calc(var(--radius) * var(--scale)))
+            rotate(var(--neg-start));
+    }
+
+    to {
+        transform:
+            rotate(calc(var(--start) + 360deg))
+            translateX(calc(var(--radius) * var(--scale)))
+            rotate(calc(var(--neg-start) - 360deg));
+    }
+}
+
+.galaxy-hint {
+    text-align: center;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* СЕКРЕТНЫЕ БЛЮДА */
+
+.secret-section {
+    background: radial-gradient(circle at 80% 50%, #4d203044, transparent 55%);
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 7%;
+    align-items: center;
+}
+
+.secret-intro h2 { margin: 20px 0; }
+
+.secret-intro p {
+    color: var(--muted);
+    line-height: 2;
+    font-size: 14px;
+    max-width: 440px;
+}
+
+.secret-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.secret-card {
+    position: relative;
+    min-height: 355px;
+    border: 1px solid var(--line);
+    background: radial-gradient(circle, #5d3a273d, #21151b 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: .3s;
+    text-align: center;
+    color: var(--white);
+}
+
+.secret-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.secret-card .lid {
+    font-size: 90px;
+    filter: drop-shadow(0 0 18px #d5aa6c66);
+    transition: .55s;
+}
+
+.secret-card.open .lid {
+    transform: translateY(-25px) rotate(-15deg);
+    opacity: 0;
+}
+
+.secret-card img {
+    position: absolute;
+    top: 60px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(.6);
+    transition: .5s;
+    border: 2px solid var(--gold);
+}
+
+.secret-card.open img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.secret-card h3 {
+    font: 600 27px 'Cormorant Garamond', serif;
+}
+
+.secret-card p {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--gold);
+}
+
+/* ФИНАЛЬНЫЙ БАННЕР */
+
+.final-banner {
+    position: relative;
+    min-height: 570px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background: url('images/the noir.jpg') center/cover;
+}
+
+.final-overlay {
+    position: absolute;
+    inset: 0;
+    background: #130910c9;
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.final-content h2 {
+    font-size: clamp(44px, 6vw, 85px);
+    margin: 20px 0 32px;
+}
+
+/* КОНТАКТЫ */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9%;
+    align-items: center;
+}
+
+.contact h2 { margin: 20px 0; }
+
+.contact p {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 30px;
+    max-width: 440px;
+}
+
+.contact-card {
+    background: #20151a;
+    border: 1px solid var(--line);
+    padding: 40px;
+}
+
+.contact-card span {
+    display: block;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+}
+
+.contact-card strong {
+    display: block;
+    font: 600 24px 'Cormorant Garamond', serif;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+}
+
+/* ПОДВАЛ */
+
+footer {
+    padding: 70px 8% 30px;
+    text-align: center;
+    background: #090709;
+    border-top: 1px solid var(--line);
+}
+
+.footer-logo {
+    font: 700 85px 'Cormorant Garamond', serif;
+    letter-spacing: 12px;
+    margin-bottom: 50px;
+}
+
+.footer-logo span {
+    font-size: 25px;
+    color: var(--gold);
+}
+
+.footer-line {
+    border-top: 1px solid var(--line);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer-line a { color: var(--gold); }
+
+/* МОДАЛЬНОЕ ОКНО */
+
+.modal,
+.drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .3s, visibility .3s;
+}
+
+.modal.open,
+.drawer.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.shade {
+    position: absolute;
+    inset: 0;
+    background: #000c;
+    backdrop-filter: blur(9px);
+}
+
+.modal {
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.modal-box {
+    position: relative;
+    width: min(930px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    background: #21151a;
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: translateY(25px);
+    transition: transform .3s;
+}
+
+.modal.open .modal-box { transform: none; }
+
+.modal-box > img {
+    width: 100%;
+    height: 100%;
+    min-height: 470px;
+    object-fit: cover;
+}
+
+.modal-details {
+    padding: 55px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-details h2 {
+    font: 600 clamp(40px, 4vw, 62px)/1 'Cormorant Garamond', serif;
+    margin: 18px 0;
+}
+
+.modal-details > p,
+.ingredients p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+.ingredients {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    margin: 25px 0;
+}
+
+.ingredients span {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.ingredients p { margin-top: 10px; }
+
+.modal-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-bottom strong {
+    font: 700 35px 'Cormorant Garamond', serif;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    background: #180e13;
+    color: white;
+    font-size: 18px;
+    z-index: 6;
+}
+
+.close:hover {
+    background: var(--gold);
+    color: #170d10;
+}
+
+/* КОРЗИНА */
+
+.drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(460px, 100%);
+    height: 100%;
+    background: #1d1318;
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform .35s;
+}
+
+.drawer.open .drawer-panel { transform: none; }
+
+.drawer-head {
+    padding: 40px 28px 25px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+
+.drawer-head h2 {
+    font: 500 47px 'Cormorant Garamond', serif;
+    margin-top: 10px;
+}
+
+.cart-items {
+    padding: 20px 28px;
+    flex: 1;
+    overflow: auto;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 75px 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.cart-item {
+    display: flex;
+    gap: 13px;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 86px;
+    object-fit: cover;
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-info h3 {
+    font: 600 23px 'Cormorant Garamond', serif;
+}
+
+.cart-item-info > span {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.qty {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.qty button {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--gold);
+    width: 28px;
+    height: 28px;
+}
+
+.drawer-bottom {
+    border-top: 1px solid var(--line);
+    padding: 24px 28px 32px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.total strong {
+    font: 700 35px 'Cormorant Garamond', serif;
+    color: var(--gold);
+}
+
+.full { width: 100%; }
+
+.drawer-bottom small {
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 14px;
+}
+
+.toast {
+    position: fixed;
+    z-index: 1000;
+    bottom: 28px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: var(--gold);
+    color: #160d10;
+    padding: 14px 22px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ПЛАНШЕТ */
+
+@media (max-width: 1050px) {
+    .header nav { gap: 13px; }
+    .header nav a { font-size: 9px; }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .universe {
+        --scale: .78;
+        height: 720px;
+    }
+}
+
+@media (max-width: 760px) {
+    .header {
+        padding: 0 5%;
+        height: 74px;
+    }
+
+    .menu-toggle { display: block; }
+
+    .header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #1b1116;
+        flex-direction: column;
+        padding: 15px 6% 25px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .header nav.open { display: flex; }
+
+    .header nav a {
+        padding: 12px 0;
+        font-size: 11px;
+    }
+
+    .section { padding: 85px 6%; }
+
+    .story,
+    .secret-section,
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .story-photo img { height: 400px; }
+
+    .universe {
+        --scale: .59;
+        height: 560px;
+    }
+
+    .galaxy-section { padding: 90px 1% 50px; }
+    .secret-grid { max-width: 630px; }
+
+    .hero-inner {
+        margin-left: 6%;
+        max-width: 88%;
+    }
+}
+
+/* ТЕЛЕФОН */
+
+@media (max-width: 500px) {
+    .logo {
+        font-size: 29px;
+        letter-spacing: 3px;
+    }
+
+    .logo small { font-size: 6px; }
+
+    .cart-trigger {
+        font-size: 9px;
+        padding: 8px;
+    }
+
+    .hero { min-height: 640px; }
+
+    .hero h1 {
+        font-size: clamp(51px, 12vw, 70px);
+    }
+
+    .hero-inner > p { font-size: 12px; }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-foot { font-size: 8px; }
+    .story-photo img { height: 310px; }
+
+    .menu-grid { grid-template-columns: 1fr; }
+    .food-image { height: 250px; }
+
+    .section-heading h2,
+    .section h2 {
+        font-size: clamp(46px, 11vw, 65px);
+    }
+
+    .universe {
+        --scale: .37;
+        height: 385px;
+    }
+
+    .sun strong {
+        font-size: 17px;
+        letter-spacing: 0;
+    }
+
+    .sun small {
+        font-size: 4px;
+        letter-spacing: 0;
+    }
+
+    .sun span { font-size: 12px; }
+
+    .planet-label {
+        font-size: 6px;
+        padding: 6px 1px 4px;
+    }
+
+    .planet-inner { inset: 1px; }
+
+    .galaxy-hint {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .secret-grid { gap: 10px; }
+
+    .secret-card {
+        min-height: 245px;
+        padding: 10px;
+    }
+
+    .secret-card .lid { font-size: 58px; }
+
+    .secret-card img {
+        width: 85px;
+        height: 85px;
+        top: 42px;
+    }
+
+    .secret-card h3 { font-size: 21px; }
+    .secret-card p { font-size: 8px; }
+
+    .final-banner { min-height: 450px; }
+
+    .modal-box { display: block; }
+
+    .modal-box > img {
+        height: 210px;
+        min-height: 0;
+    }
+
+    .modal-details { padding: 25px 22px; }
+
+    .modal-bottom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .footer-logo { font-size: 58px; }
+
+    .footer-line {
+        flex-direction: column;
+        align-items: center;
+        line-height: 2;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+
+
+/* THE GOLDEN CHEF */
+
+.chef-section {
+    width: 100%;
+    padding: 65px 20px;
+    background: #100b0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chef-banner {
+    display: block;
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    border: 1px solid rgba(213, 170, 108, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 20px 65px rgba(0, 0, 0, 0.5);
+}
+
+/* Телефон */
+@media (max-width: 600px) {
+    .chef-section {
+        padding: 35px 15px;
+    }
+
+    .chef-banner {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+}
+
